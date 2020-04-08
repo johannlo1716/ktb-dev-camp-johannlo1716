@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class KtbDevCampApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(KtbDevCampApplication.class, args);
+		SpringApplication.run(HelloWorldController.class, args);
 	}
 
 }
