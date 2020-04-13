@@ -13,7 +13,7 @@
         <property name="dataSource" ref="ds"></property>
     </bean>
 
-    <bean id="musicdao" class="com.johannlo.ktbDevCamp.service.MusicServiceImplementation">
+    <bean id="musicdao" class="com.johannlo.ktbDevCamp.service.MusicService">
         <property name="jdbcTemplate" ref="jdbcTemplate"></property>
     </bean>
 </beans>
