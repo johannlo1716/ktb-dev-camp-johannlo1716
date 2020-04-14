@@ -1,18 +1,16 @@
 package com.johannlo.ktbDevCamp.models;
 
-import lombok.Data;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.io.Serializable;
+import java.util.UUID;
 
-@Data
+
 @Entity
 @ToString
 @Table(name = "tbl_music")
-public class Music implements Serializable {
+public class Music {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     public String id;
     @Column(name = "name")
@@ -20,7 +18,8 @@ public class Music implements Serializable {
     @Column(name = "genre")
     public String genre;
 
-    public Music() {
-        this.id = java.util.UUID.randomUUID().toString();
+    public Music(){
+        this.id = UUID.randomUUID().toString();
     }
+
 }
