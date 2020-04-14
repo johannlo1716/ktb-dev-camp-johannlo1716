@@ -1,21 +1,25 @@
 package com.johannlo.ktbDevCamp.models;
 
-import lombok.Data;
 import lombok.ToString;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.util.UUID;
 
-@Data
+
 @Entity
 @ToString
+@Table(name = "tbl_music")
 public class Music {
-    public UUID id;
+    @Id
+    @Column(name = "id")
+    public String id;
+    @Column(name = "name")
     public String name;
+    @Column(name = "genre")
     public String genre;
 
-
-    Music() {
-        this.id = java.util.UUID.randomUUID();
+    public Music(){
+        this.id = UUID.randomUUID().toString();
     }
+
 }
