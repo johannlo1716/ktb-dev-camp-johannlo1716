@@ -17,6 +17,8 @@ public class Music {
     public String name;
     @Column(name = "genre")
     public String genre;
+    @Column(name = "artist")
+    public String artist;
 
     public Music(){
         this.id = UUID.randomUUID().toString();
