@@ -1,8 +1,7 @@
-package com.johannlo.ktbDevCamp.service;
+package com.johannlo.ktb_dev_camp.service;
 
-import com.johannlo.ktbDevCamp.models.Lyric;
-import com.johannlo.ktbDevCamp.models.Music;
-import org.springframework.http.ResponseEntity;
+import com.johannlo.ktb_dev_camp.model.Lyric;
+import com.johannlo.ktb_dev_camp.model.Music;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientResponseException;
 import org.springframework.web.client.RestTemplate;
@@ -15,8 +14,7 @@ public class LyricService {
         String url = "https://api.lyrics.ovh/v1/" + music.artist + "/" + music.name;
 
         try {
-            ResponseEntity<Lyric> response = restTemplate.getForEntity(url, Lyric.class);
-            lyric = response.getBody();
+            lyric = restTemplate.getForEntity(url, Lyric.class).getBody();
         } catch (RestClientResponseException exception) {
             lyric = new Lyric("No lyrics found.");
         }

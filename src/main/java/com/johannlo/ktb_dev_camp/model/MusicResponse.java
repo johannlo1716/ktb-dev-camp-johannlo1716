@@ -1,4 +1,4 @@
-package com.johannlo.ktbDevCamp.models;
+package com.johannlo.ktb_dev_camp.model;
 
 public class MusicResponse {
     public Music music;

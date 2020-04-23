@@ -1,10 +1,9 @@
-package com.johannlo.ktbDevCamp;
+package com.johannlo.ktb_dev_camp.controller;
 
-import com.google.gson.Gson;
-import com.johannlo.ktbDevCamp.models.Music;
-import com.johannlo.ktbDevCamp.models.MusicResponse;
-import com.johannlo.ktbDevCamp.service.LyricService;
-import com.johannlo.ktbDevCamp.service.MusicService;
+import com.johannlo.ktb_dev_camp.model.Music;
+import com.johannlo.ktb_dev_camp.model.MusicResponse;
+import com.johannlo.ktb_dev_camp.service.LyricService;
+import com.johannlo.ktb_dev_camp.service.MusicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,26 +20,26 @@ public class RestApiController {
     @Autowired
     private LyricService lyricService;
 
+
     @RequestMapping("/")
     public String defaultPage() {
         return "Default Page";
     }
 
     @RequestMapping(value = "/music", method = RequestMethod.GET, produces = "application/json")
-    public String getMusic() {
-        List<MusicResponse> response = new ArrayList<MusicResponse>();
+    public List<MusicResponse> getMusic() {
+        List<MusicResponse> response = new ArrayList<>();
         var listOfMusic = musicService.getAllMusic();
         for (var music: listOfMusic){
             var lyrics = lyricService.findLyrics(music);
             response.add(new MusicResponse(music, lyrics));
         }
-        return new Gson().toJson(response);
+        return response;
     }
-
     @RequestMapping(value = "/music/{id}", method = RequestMethod.GET, produces = "application/json")
-    public String getMusicById(@PathVariable String id) {
+    public MusicResponse getMusicById(@PathVariable String id) {
         var music = musicService.findMusicById(id);
-        return new Gson().toJson(new MusicResponse(music, lyricService.findLyrics(music)));
+        return new MusicResponse(music, lyricService.findLyrics(music));
     }
 
     @RequestMapping(value = "/music", method = RequestMethod.POST)

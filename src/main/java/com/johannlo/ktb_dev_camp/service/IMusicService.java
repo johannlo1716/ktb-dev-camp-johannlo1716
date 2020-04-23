@@ -1,6 +1,6 @@
-package com.johannlo.ktbDevCamp.service;
+package com.johannlo.ktb_dev_camp.service;
 
-import com.johannlo.ktbDevCamp.models.Music;
+import com.johannlo.ktb_dev_camp.model.Music;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -1,7 +1,7 @@
-package com.johannlo.ktbDevCamp.service;
+package com.johannlo.ktb_dev_camp.service;
 
-import com.johannlo.ktbDevCamp.models.Music;
-import com.johannlo.ktbDevCamp.repository.MusicRepository;
+import com.johannlo.ktb_dev_camp.model.Music;
+import com.johannlo.ktb_dev_camp.repository.MusicRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +23,6 @@ public class MusicService {
 
     public void addMusic(Music music) {
         repository.save(music);
-
     }
 
     public void updateMusic(String id, Music music) {
