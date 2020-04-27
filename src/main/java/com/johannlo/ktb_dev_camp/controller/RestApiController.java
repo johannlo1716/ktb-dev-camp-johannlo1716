@@ -5,6 +5,7 @@ import com.johannlo.ktb_dev_camp.model.MusicResponse;
 import com.johannlo.ktb_dev_camp.service.LyricService;
 import com.johannlo.ktb_dev_camp.service.MusicService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -43,6 +44,7 @@ public class RestApiController {
     }
 
     @RequestMapping(value = "/music", method = RequestMethod.POST)
+    @ResponseStatus(HttpStatus.CREATED)
     public void addMusic(@RequestBody Music music) {
         musicService.addMusic(music);
     }
